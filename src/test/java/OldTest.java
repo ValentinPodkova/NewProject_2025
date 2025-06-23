@@ -206,7 +206,6 @@ public class OldTest {
     @Test
     public void testSearchWiki() {
         WebDriver driver = new ChromeDriver();
-
         driver.get("https://en.wikipedia.org/wiki/Main_Page");
 
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(500));
@@ -223,7 +222,6 @@ public class OldTest {
 
     @Test
     public void testToolsQA() {
-
         WebDriver driver = new ChromeDriver();
         driver.get("https://demoqa.com/text-box");
 
@@ -232,6 +230,25 @@ public class OldTest {
 
         WebElement primaryImage = driver.findElement(By.xpath("//img[@src = '/images/Toolsqa.jpg']"));
         Assert.assertTrue(primaryImage.isDisplayed());
+        driver.quit();
+    }
+
+    @Test
+    public void testPlaceholderFill(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://www.saucedemo.com/");
+
+        WebElement textBoxUser = driver.findElement(By.name("user-name"));
+        textBoxUser.sendKeys("standard_user");
+        WebElement textBoxPass = driver.findElement(By.id("password"));
+        textBoxPass.sendKeys("secret_sauce");
+        WebElement submitButton = driver.findElement(By.id("login-button"));
+
+        submitButton.click();
+
+        String currentUrl = driver.getCurrentUrl();
+        Assert.assertEquals(currentUrl, "https://www.saucedemo.com/inventory.html");
+
         driver.quit();
     }
 }
