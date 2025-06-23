@@ -220,6 +220,21 @@ public class OldTest {
         Assert.assertEquals(artickleTitle.getText(), ("Selenium"));
         driver.quit();
     }
+
+    @Test
+    public void testToolsQA() {
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://demoqa.com/text-box");
+
+        String title = driver.getTitle();
+        Assert.assertEquals(title, "DEMOQA");
+
+        WebElement primaryImage = driver.findElement(By.xpath("//img[@src = '/images/Toolsqa.jpg']"));
+        Assert.assertTrue(primaryImage.isDisplayed());
+        driver.quit();
+    }
 }
+
 
 
