@@ -21,6 +21,10 @@ jobs:
           distribution: 'corretto'
           java-version: '17'
           cache: 'maven'
+      - name: Build with Maven
+        run: mvn -B clean install -Dmaven.test.skip=false
+      - name: Run Checkstyle
+        run: mvn checkstyle:check
 
       - name: Get list of changed files
         run: echo "LIST_OF_CHANGED_FILES=$(git diff --name-only origin/$GITHUB_HEAD_REF $(git merge-base origin/$GITHUB_HEAD_REF origin/main) | tr '\n' ';')" >> $GITHUB_ENV
