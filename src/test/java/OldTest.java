@@ -261,7 +261,7 @@ public class OldTest {
         search.sendKeys("Java");
         search.sendKeys(Keys.ENTER);
 
-        Assert.assertEquals(driver.findElement(By.xpath("//div[2]/div[2]/div[1]/a/span")).getText(), "Java");
+        Assert.assertEquals(driver.findElement(By.cssSelector(".mw-page-title-main")).getText(), "Java");
         driver.quit();
     }
 }
