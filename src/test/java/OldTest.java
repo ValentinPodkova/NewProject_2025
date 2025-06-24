@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -234,7 +235,7 @@ public class OldTest {
     }
 
     @Test
-    public void testPlaceholderFill(){
+    public void testPlaceholderFill() {
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
 
@@ -249,6 +250,18 @@ public class OldTest {
         String currentUrl = driver.getCurrentUrl();
         Assert.assertEquals(currentUrl, "https://www.saucedemo.com/inventory.html");
 
+        driver.quit();
+    }
+
+    @Test
+    public void wikiTest() {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://ru.wikipedia.org/wiki/");
+        WebElement search = driver.findElement(By.xpath("//*[@id='searchInput']"));
+        search.sendKeys("Java");
+        search.sendKeys(Keys.ENTER);
+
+        Assert.assertEquals(driver.findElement(By.xpath("//div[2]/div[2]/div[1]/a/span")).getText(), "Java");
         driver.quit();
     }
 }
