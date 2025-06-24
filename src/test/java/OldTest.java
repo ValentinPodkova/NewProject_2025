@@ -244,7 +244,6 @@ public class OldTest {
         WebElement textBoxPass = driver.findElement(By.id("password"));
         textBoxPass.sendKeys("secret_sauce");
         WebElement submitButton = driver.findElement(By.id("login-button"));
-
         submitButton.click();
 
         String currentUrl = driver.getCurrentUrl();
