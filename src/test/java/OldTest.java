@@ -242,7 +242,7 @@ public class OldTest {
         WebElement textBoxUser = driver.findElement(By.name("user-name"));
         textBoxUser.sendKeys("standard_user");
         WebElement textBoxPass = driver.findElement(By.id("password"));
-        textBoxPass.sendKeys("secret_sauce");
+        textBoxPass.sendKeys("secret_sauc");
         WebElement submitButton = driver.findElement(By.id("login-button"));
 
         submitButton.click();
